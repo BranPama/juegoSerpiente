@@ -22,7 +22,7 @@ public class Juego implements ActionListener{
       fruta.generarNuevaPosicion();
       tablero = new Tablero(600,600,fruta,serpiente); 
       configurarVentana(tablero);
-      temporizador = new Timer(150, this);
+      temporizador = new Timer(130, this);
       temporizador.start(); 
 
     }

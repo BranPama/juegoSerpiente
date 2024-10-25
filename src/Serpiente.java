@@ -85,8 +85,6 @@ public class Serpiente {
     }
     public void crecer() {
         int[] ultimaPosicion = cuerpo.get(cuerpo.size() - 1);
-    
-        // Agrega un nuevo bloque en la misma posición (esto genera el "crecimiento")
         cuerpo.add(ultimaPosicion);
     }
 
