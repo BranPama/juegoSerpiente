@@ -9,7 +9,7 @@ public class Fruta {
         this.AlTO_TABLERO = altoTablero;
     }
     public void generarNuevaPosicion(){
-        posicionX = aleatorio(AlTO_TABLERO);
+        posicionX = aleatorio(ANCHO_TABLERO);
         posicionY = aleatorio(AlTO_TABLERO);
     }
     public int getPosicionX(){

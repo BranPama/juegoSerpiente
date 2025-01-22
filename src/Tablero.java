@@ -1,4 +1,3 @@
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -10,10 +9,8 @@ public class Tablero extends JPanel{
     private final int ANCHO;
     private final int ALTO;
     private Fruta Fruta;
-    private int puntuacion = 0;
     private Serpiente serpiente;
-    private final Color VERDE_CLARO= Color.gray;
-    private final Color VERDE_OSCURO= Color.WHITE;
+    private int puntuacion;
 
     //metodo constructivo
     public Tablero(int ancho, int alto, Fruta fruta,Serpiente serpiente){
@@ -23,7 +20,14 @@ public class Tablero extends JPanel{
         this.setPreferredSize(new Dimension(ANCHO,ALTO));
         this.setBackground(Color.white);
         this.serpiente = serpiente;
+        this.puntuacion = 0;
     }
+
+    public void actualizarPuntuacion(int puntuacion) {
+        this.puntuacion = puntuacion; // Actualizar la puntuación
+        repaint(); // Forzar el redibujado del tablero
+    }
+
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
@@ -58,6 +62,7 @@ public class Tablero extends JPanel{
         g.setColor(Color.RED);
         g.fillRect(Fruta.getPosicionX(),Fruta.getPosicionY(),20,20);
     }
+
     private void dibujarSerpiente(Graphics g,Serpiente serpiente){
 
         for (int i = 0; i < serpiente.getCuerpo().size(); i++) {
@@ -71,14 +76,13 @@ public class Tablero extends JPanel{
     
         }
     }
-    private void dibujarPuntuacion(Graphics g){
-        String puntos= puntuacion+" Puntos";
-        Font fuente=new Font("Serif", Font.BOLD, 24);
+
+    private void dibujarPuntuacion(Graphics g) {
+        String puntos = "Puntos: " + puntuacion;
+        Font fuente = new Font("Serif", Font.LAYOUT_LEFT_TO_RIGHT, 20);
         g.setFont(fuente);
-        g.setColor(Color.BLACK);
-        g.drawString(puntos,(ANCHO-100) , 20);
-        }
-        public void setPuntuacion(int puntos){
-        puntuacion=puntos;
+        g.setColor(Color.BLUE);
+        g.drawString(puntos, ANCHO - 80, 15);
     }
+
 }
